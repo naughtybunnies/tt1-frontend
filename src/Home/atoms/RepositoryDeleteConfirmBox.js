@@ -19,7 +19,7 @@ const LoginForm = styled(Box)`
     margin: 10% auto;
 `;
 
-const LoginForm_bg = styled.div`
+const LoginFormBg = styled.div`
     display: block;
     position: absolute;
     z-index: 1; /* Sit on top */
@@ -49,10 +49,10 @@ export default class RepositoryDeleteConfirmBox extends Component {
         const { formValue } = this.state;
         let tempState = this.state;
 
-        if (repositoryName == formValue) {
+        if (repositoryName === formValue) {
             tempState.formIsDanger = false;
             axios
-                .post("http://192.168.43.91:5000/repository/delete/", {
+                .post("http://localhost:5000/repository/delete/", {
                     name: repositoryName
                 })
                 .then(response => {
@@ -70,7 +70,7 @@ export default class RepositoryDeleteConfirmBox extends Component {
         const { repositoryName, displayConfirmBox, toggler } = this.props;
         return (
             <div style={{ display: displayConfirmBox }}>
-                <LoginForm_bg>
+                <LoginFormBg>
                     <LoginForm>
                         <Field>
                             <Label>
@@ -114,7 +114,7 @@ export default class RepositoryDeleteConfirmBox extends Component {
                         </Field>
                         <p>{this.state.errorMessage ||  ""}</p>
                     </LoginForm>
-                </LoginForm_bg>
+                </LoginFormBg>
             </div>
         );
     }
