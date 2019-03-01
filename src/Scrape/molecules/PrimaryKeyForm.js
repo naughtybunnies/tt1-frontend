@@ -32,26 +32,26 @@ export default class PrimaryKeyForm extends Component {
     };
 
     formSubmitHandler = event => {
-        if (this.state.baseurl == "") {
+        if (this.state.baseurl === "") {
             this.setState({
                 errorMessage: "Please enter URL.",
                 baseurlIsDanger: true
             });
-        } else if (this.state.start == "" || this.state.end == "") {
+        } else if (this.state.start === "" || this.state.end === "") {
             this.setState({
                 errorMessage: "Please enter valid range of Start and End",
                 rangeIsDanger: true
             });
         } else {
             axios
-                .post("http://192.168.43.91:5000/repository/scraper/seturl/", {
+                .post("http://localhost:5000/repository/scraper/seturl/", {
                     baseurl: this.state.baseurl,
                     start: this.state.start,
                     end: this.state.end,
                     reponame: this.state.reponame
                 })
                 .then(response => {
-                    if (response.status == 200) {
+                    if (response.status === 200) {
                         window.location.reload();
                     }
                 })
@@ -87,9 +87,7 @@ export default class PrimaryKeyForm extends Component {
                             name="start"
                             value={start}
                             onChange={this.formHandler}
-                            color={
-                                this.state.rangeIsDanger ? "danger" : "link"
-                            }
+                            color={this.state.rangeIsDanger ? "danger" : "link"}
                         />
                         <TextInput
                             label="End"
@@ -97,9 +95,7 @@ export default class PrimaryKeyForm extends Component {
                             name="end"
                             value={end}
                             onChange={this.formHandler}
-                            color={
-                                this.state.rangeIsDanger ? "danger" : "link"
-                            }
+                            color={this.state.rangeIsDanger ? "danger" : "link"}
                         />
 
                         <Button color="link">Start Scraping</Button>
