@@ -7,11 +7,12 @@ import Homepage from './Home/pages/Homepage'
 import SelectMethodSelect from './Scrape/pages/SelectMethodSelect'
 import PrimaryKeyScrape from './Scrape/pages/PrimaryKeyScrape'
 
+
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
         <div>
           <Route exact path="/" component={Homepage} />
           <Route exact path="/scrape/:repositoryName" component={SelectMethodSelect} />
