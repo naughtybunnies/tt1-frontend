@@ -19,7 +19,7 @@ const LoginForm = styled(Box)`
     margin: 10% auto;
 `;
 
-const LoginForm_bg = styled.div`
+const LoginFormBg = styled.div`
     display: block;
     position: absolute;
     z-index: 1; /* Sit on top */
@@ -46,7 +46,7 @@ export default class RepositoryCreateConfirmBox extends Component {
 
     confirmCreate = () => {
         axios
-            .post("http://192.168.43.91:5000/repository/", {
+            .post("http://localhost:5000/repository/", {
                 name: this.state.formValue
             })
             .then(response => {
@@ -73,7 +73,7 @@ export default class RepositoryCreateConfirmBox extends Component {
         const { repositoryName, displayConfirmBox, toggler } = this.props;
         return (
             <div style={{ display: displayConfirmBox }}>
-                <LoginForm_bg>
+                <LoginFormBg>
                     <LoginForm>
                         <Field>
                             <Label>Create New Repository</Label>
@@ -117,7 +117,7 @@ export default class RepositoryCreateConfirmBox extends Component {
                         </Field>
                         <p>{this.state.errorMessage ||  ""}</p>
                     </LoginForm>
-                </LoginForm_bg>
+                </LoginFormBg>
             </div>
         );
     }
