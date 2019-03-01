@@ -15,7 +15,7 @@ export default class RepositoryDeleteButton extends Component {
         this.setState(prevState => {
             let tempState = prevState;
             tempState.displayConfirmBox =
-                prevState.displayConfirmBox == "none" ? "block" : "none";
+                prevState.displayConfirmBox === "none" ? "block" : "none";
             return tempState;
         });
     };

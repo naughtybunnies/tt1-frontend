@@ -51,7 +51,7 @@ export default class RepositoryBoard extends Component {
 
     getRepositoriesStatus = () => {
         axios
-            .get("http://192.168.43.91:5000/getstatus")
+            .get("http://localhost:5000/getstatus")
             .then(response => {
                 this.setState({
                     responseFromAPI: response.data

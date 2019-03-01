@@ -1,4 +1,3 @@
-import React, { Component } from 'react'
 import styled from "styled-components";
 
 import Box from "react-bulma-components/lib/components/box";
@@ -8,5 +7,5 @@ const MenuBox = styled(Box)`
     margin: 100px 100px 0px 100px;
     display: flex;
     flex-direction: column;
-`   
-export default MenuBox
+`;
+export default MenuBox;
