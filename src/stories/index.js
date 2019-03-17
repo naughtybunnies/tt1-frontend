@@ -90,6 +90,6 @@ import ScrapeUsingPrimaryKeyBox from '../Scrape/organisms/ScrapeUsingPrimaryKeyB
 storiesOf('Scrape')
   .add('[Atom] MenuBox', () => (<MenuBox />))
   .add('[Atom] MenuBubble with icon', () => (<MenuBubble />))
-  .add('[Molecule] Scrape Method Menubox', () => (<ScrapeMethodMenuBox />))
+  .add('[Molecule] Scrape Method Menubox', () => (<BrowserRouter><ScrapeMethodMenuBox /></BrowserRouter>))
   .add('[Atom] Text Input', () => (<TextInput />))
   .add('[Organism] Scrape Primary Key Form Box', () => (<BrowserRouter><ScrapeUsingPrimaryKeyBox /></BrowserRouter>))
