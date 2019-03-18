@@ -3,9 +3,9 @@ import React, { Component } from "react";
 import { Columns } from "react-bulma-components";
 
 import Sidebar from "../../Template/Sidebar";
-import ScrapeMethodMenuBox from "../organisms/ScrapeMethodMenuBox";
+import ScrapeUsingFileBox from "../organisms/ScrapeUsingFileBox";
 
-export default class ScrapeMethodSelect extends Component {
+export default class FileScrape extends Component {
     render() {
         try {
             var { repositoryName } = this.props.match.params;
@@ -23,7 +23,7 @@ export default class ScrapeMethodSelect extends Component {
 
                         <Columns.Column>
                             {"Working on: "} <b>{repositoryName}</b>
-                            <ScrapeMethodMenuBox
+                            <ScrapeUsingFileBox
                                 repositoryName={repositoryName}
                             />
                         </Columns.Column>

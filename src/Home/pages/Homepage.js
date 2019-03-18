@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
-import Columns from "react-bulma-components/lib/components/columns";
+import { Columns } from "react-bulma-components";
 
 import Sidebar from "../../Template/Sidebar";
 import RepositoryBoard from "../organisms/RepositoryBoard";

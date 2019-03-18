@@ -1,13 +1,17 @@
 import React, { Component } from "react";
 
-import Columns from "react-bulma-components/lib/components/columns";
+import { Columns } from "react-bulma-components";
 
 import Sidebar from "../../Template/Sidebar";
 import ScrapeUsingPrimaryKeyBox from "../organisms/ScrapeUsingPrimaryKeyBox";
 
 export default class PrimaryKeyScrape extends Component {
     render() {
-        const { repositoryName } = this.props.match.params
+        try {
+            var { repositoryName } = this.props.match.params;
+        } catch (err) {
+            var repositoryName = "mock";
+        }
 
         return (
             <div>
@@ -18,8 +22,10 @@ export default class PrimaryKeyScrape extends Component {
                         </Columns.Column>
 
                         <Columns.Column>
-                        {"Working on: "} <b>{repositoryName}</b>
-                            <ScrapeUsingPrimaryKeyBox repositoryName={repositoryName} />
+                            {"Working on: "} <b>{repositoryName}</b>
+                            <ScrapeUsingPrimaryKeyBox
+                                repositoryName={repositoryName}
+                            />
                         </Columns.Column>
                     </Columns>
                 </section>
