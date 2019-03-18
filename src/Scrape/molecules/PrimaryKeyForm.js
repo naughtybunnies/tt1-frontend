@@ -3,7 +3,8 @@ import styled from "styled-components";
 import axios from "axios";
 
 import TextInput from "../atoms/TextInput";
-import Button from "react-bulma-components/lib/components/button";
+
+import { Button } from "react-bulma-components";
 
 const FormContainer = styled.div`
     display: flex;
@@ -44,7 +45,7 @@ export default class PrimaryKeyForm extends Component {
             });
         } else {
             axios
-                .post("http://localhost:5000/repository/scraper/seturl/", {
+                .post(window.API_ENDPOINT + "/repository/scraper/seturl/", {
                     baseurl: this.state.baseurl,
                     start: this.state.start,
                     end: this.state.end,

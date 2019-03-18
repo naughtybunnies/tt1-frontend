@@ -9,11 +9,11 @@ import {
 export default class TextInput extends Component {
     static defaultProps = {
         label: "undefined",
-        placeholder: "undefined",
-    }
+        placeholder: "undefined"
+    };
 
     render() {
-        const { label, placeholder, onChange, name, value, color} = this.props;
+        const { label, placeholder, onChange, name, value, color } = this.props;
 
         return (
             <Field>

@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-
-import Media from "react-bulma-components/lib/components/media";
-import Box from "react-bulma-components/lib/components/box";
+import { Media, Box } from "react-bulma-components";
 
 import RepositoryCardBubble from "../atoms/RepositoryCardBubble";
 import RepositoryCardName from "../atoms/RepositoryCardName";
@@ -39,22 +37,46 @@ export default class RepositoryCard extends Component {
                         >
                             <RepositoryCardBubble
                                 upText="Scrape"
-                                midText={this.props.scraperStatus == 'Ready' ? 'Ready' : this.props.scrapePercent + "%"}
-                                lowText={this.props.scrapeDone + "/" + this.props.scrapeTotal}
-                                bubbleColor={this.scraperStatus == 'Ready' ? '#f9ccac' : '#87bdd8'}
-                                linkTo={this.props.scraperStatus == 'Ready' ? '/scrape/' + repositoryName : false}
+                                midText={
+                                    this.props.scraperStatus == "Ready"
+                                        ? "Ready"
+                                        : this.props.scrapePercent + "%"
+                                }
+                                lowText={
+                                    this.props.scrapeDone +
+                                    "/" +
+                                    this.props.scrapeTotal
+                                }
+                                bubbleColor={
+                                    this.scraperStatus == "Ready"
+                                        ? "#f9ccac"
+                                        : "#87bdd8"
+                                }
+                                linkTo={
+                                    this.props.scraperStatus == "Ready"
+                                        ? "/scrape/" + repositoryName
+                                        : false
+                                }
                                 repositoryName={repositoryName}
                             />
-                            <RepositoryCardBubble 
+                            <RepositoryCardBubble
                                 upText="Parse"
                                 midText={this.props.parseMid}
-                                bubbleColor={this.parserStatus == 'Unavailable' ? '#b7d7e8':'#e0e2e4'}
-                                 />
-                            <RepositoryCardBubble 
+                                bubbleColor={
+                                    this.parserStatus == "Unavailable"
+                                        ? "#b7d7e8"
+                                        : "#e0e2e4"
+                                }
+                            />
+                            <RepositoryCardBubble
                                 upText="Export"
-                                midText={this.props.exportMid} 
-                                bubbleColor={this.exporterStatus == 'Unavailable' ? '#cfe0e8' : "#e0e2e4"}
-                                />
+                                midText={this.props.exportMid}
+                                bubbleColor={
+                                    this.exporterStatus == "Unavailable"
+                                        ? "#cfe0e8"
+                                        : "#e0e2e4"
+                                }
+                            />
                         </RepositoryBubblesPanel>
 
                         <Media.Item renderAs="figure" position="right">
