@@ -51,3 +51,8 @@ storiesOf('Scrape')
   .add('[Organism] Scrape File Box', () => (<BrowserRouter><ScrapeUsingFileBox repositoryName="mock"/></BrowserRouter>))
   .add('[Atom] Upload Button', () => (<UploadButton />))
   .add('[Atom] FileDataScrapeConfirmBox', () => (<FileDataScrapeConfirmBox />))
+
+import Navbar from '../Template/Navbar'
+
+storiesOf('Template')
+  .add('Navbar', () => (<Navbar />))
