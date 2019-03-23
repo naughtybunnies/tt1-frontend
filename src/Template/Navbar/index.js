@@ -14,7 +14,7 @@ export default class MyNavbar extends Component {
                             </b>
                         </Navbar.Item>
                     </Navbar.Brand>
-                    <Navbar.Menu active={open}>
+                    <Navbar.Menu >
                         <Navbar.Container position="end">
                             <Navbar.Item dropdown={true} hoverable={true}>
                                 <Navbar.Link>Menu</Navbar.Link>
