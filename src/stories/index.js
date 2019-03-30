@@ -53,6 +53,35 @@ storiesOf('Scrape')
   .add('[Atom] FileDataScrapeConfirmBox', () => (<FileDataScrapeConfirmBox />))
 
 import Navbar from '../Template/Navbar'
+import BubbleStream from '../Experiment/BubbleStream';
 
 storiesOf('Template')
   .add('Navbar', () => (<Navbar />))
+
+import Parse from '../Parse/Pages/Parse'
+import VisualizerArea from '../Parse/Organisms/VisualizerArea'
+import MyNetwork from '../Parse/Atoms/MyNetwork'
+import Popup from '../Parse/Atoms/SimplePopup'
+import MenuBar from '../Parse/Molecules/MenuBar'
+import VisNetwork from '../Parse/Atoms/VisNetwork'
+
+import BaseButton from '../Parse/Atoms/BaseButton'
+import { faExpandArrowsAlt } from "@fortawesome/free-solid-svg-icons";
+
+
+storiesOf('Parse')
+  .add('[Page] Parse main page', () => (<Parse />))
+  .add('[Organism] Visualizing Area', () => (<VisualizerArea />))
+  .add('[Atom] Porting vis.js into react', () => (<MyNetwork />))
+  .add('[Atom] VisNetwork', () => (<VisNetwork />))
+  .add('[Atom] Simple Popup', () => (<Popup />))
+  .add('----')
+  .add('[Atom] Base Button with fullscreen button', () => (<BaseButton icon={faExpandArrowsAlt}/>))
+  .add('[Molecule] Menubar', () => (<MenuBar />))
+
+  import Credit from '../Miscellaneous/pages/Credit';
+  import ProfileCard from '../Miscellaneous/organisms/ProfileCard'
+
+storiesOf('Misc')
+  .add('[Page] Credit', () => (<Credit />))
+  .add('[Organism] Profile Card', () => (<ProfileCard />))
