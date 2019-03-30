@@ -81,18 +81,18 @@ export default class RepositoryCard extends Component {
                             <RepositoryCardBubble
                                 upText="Scrape"
                                 midText={
-                                    this.props.scraperStatus == "Ready"
+                                    this.props.scraperStatus === "Ready"
                                         ? "Ready"
                                         : scrapePercent + "%"
                                 }
                                 lowText={scrapeDone + "/" + scrapeTotal}
                                 bubbleColor={
-                                    this.props.scraperStatus == "Ready"
+                                    this.props.scraperStatus === "Ready"
                                         ? "#f9ccac"
                                         : "#87bdd8"
                                 }
                                 linkTo={
-                                    this.props.scraperStatus == "Ready"
+                                    this.props.scraperStatus === "Ready"
                                         ? "/scrape/" + repositoryName
                                         : false
                                 }
@@ -102,16 +102,22 @@ export default class RepositoryCard extends Component {
                                 upText="Parse"
                                 midText={this.props.parseMid}
                                 bubbleColor={
-                                    this.parserStatus == "Unavailable"
+                                    this.props.parserStatus === "Ready"
                                         ? "#b7d7e8"
                                         : "#e0e2e4"
                                 }
+                                linkTo={
+                                    this.props.parserStatus === "Ready"
+                                        ? "/parse/" + repositoryName
+                                        : false
+                                }
+                                repositoryName={repositoryName}
                             />
                             <RepositoryCardBubble
                                 upText="Export"
                                 midText={this.props.exportMid}
                                 bubbleColor={
-                                    this.exporterStatus == "Unavailable"
+                                    this.props.exporterStatus === "Ready"
                                         ? "#cfe0e8"
                                         : "#e0e2e4"
                                 }
