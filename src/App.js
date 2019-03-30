@@ -6,7 +6,7 @@ import "react-bulma-components/dist/react-bulma-components.min.css";
 import Homepage from "./Home/pages/Homepage";
 import SelectMethodSelect from "./Scrape/pages/SelectMethodSelect";
 import PrimaryKeyScrape from "./Scrape/pages/PrimaryKeyScrape";
-
+import Parse from "./Parse/Pages/Parse"
 class App extends Component {
     render() {
         return (
@@ -23,6 +23,11 @@ class App extends Component {
                             exact
                             path="/scrape-pk/:repositoryName"
                             component={PrimaryKeyScrape}
+                        />
+                        <Route
+                            exact
+                            path="/parse/:repositoryName"
+                            component={Parse}
                         />
                     </div>
                 </BrowserRouter>
