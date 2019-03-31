@@ -64,10 +64,11 @@ import MyNetwork from '../Parse/Atoms/MyNetwork'
 import Popup from '../Parse/Atoms/SimplePopup'
 import MenuBar from '../Parse/Molecules/MenuBar'
 import VisNetwork from '../Parse/Atoms/VisNetwork'
-
+import VisNetworkNoPopup from '../Parse/Atoms/VisNetworkNoPopup'
+import NewVisualizationArea from '../Parse/Organisms/NewVisualizationArea'
 import BaseButton from '../Parse/Atoms/BaseButton'
 import { faExpandArrowsAlt } from "@fortawesome/free-solid-svg-icons";
-
+import DataTable from "../Parse/Molecules/DataTable"
 
 storiesOf('Parse')
   .add('[Page] Parse main page', () => (<Parse />))
@@ -76,8 +77,12 @@ storiesOf('Parse')
   .add('[Atom] VisNetwork', () => (<VisNetwork />))
   .add('[Atom] Simple Popup', () => (<Popup />))
   .add('----')
+  .add('[Atom] VisNetwork No popup', () => (<VisNetworkNoPopup />))
   .add('[Atom] Base Button with fullscreen button', () => (<BaseButton icon={faExpandArrowsAlt}/>))
   .add('[Molecule] Menubar', () => (<MenuBar />))
+  .add('----')
+  .add('[Organism] New Vis Area', () => (<NewVisualizationArea repositoryName="mock"/>))
+  .add('[Molecules] Data Table', () => (<DataTable />))
 
   import Credit from '../Miscellaneous/pages/Credit';
   import ProfileCard from '../Miscellaneous/organisms/ProfileCard'
