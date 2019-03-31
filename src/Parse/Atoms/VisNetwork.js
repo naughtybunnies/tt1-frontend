@@ -22,6 +22,9 @@ export default class VisNetwork extends Component {
                 interaction: {
                     hover: true
                 }
+            },
+            popupState: {
+                visibility: "hidden"
             }
         };
         this.network = {};
@@ -31,6 +34,7 @@ export default class VisNetwork extends Component {
     setGraph = repositoryName => {
         const graphUrl =
             window.API_ENDPOINT + "/repository/" + repositoryName + "/graph/";
+            console.log("RepositoryName", repositoryName)
         if (repositoryName !== "mock") {
             axios.get(graphUrl).then(response => {
                 // set graph from real data
@@ -73,8 +77,15 @@ export default class VisNetwork extends Component {
             this.state.options
         );
 
+        this.network.on("blurNode", event => {
+            this.setState({
+                popupState: {
+                    visibility: "hidden"
+                }
+            });
+        });
+
         this.network.on("showPopup", event => {
-            console.log('showing popup', event)
             const nodeId = event;
             const nodeData = this.state.graph.nodes.get([nodeId])[0];
 
@@ -89,19 +100,19 @@ export default class VisNetwork extends Component {
                 popupState: {
                     top: posDOM.y,
                     left: posDOM.x,
-                    visibility: true,
+                    visibility: "visible",
                     content: nodeData.title
                 }
             });
         });
 
-        this.network.on("hidePopup", event => {
-            this.setState({
-                popupState: {
-                    visibility: false
-                }
-            });
-        });
+        this.network.on("selectNode", event => {
+            let selectedNode = event.nodes[0]
+            let selectedNodeData = this.state.graph.nodes.get(selectedNode).label
+
+            this.props.setSelectedNode({"data": selectedNodeData, "id": selectedNode})
+        })
+        
 
     }
 
@@ -112,9 +123,9 @@ export default class VisNetwork extends Component {
 
         const { popupState } = this.state;
         return (
-            <div>
+            <div style={{"height": "100%"}}>
                 <Popup {...popupState}></Popup>
-                <div ref={this.networkRef}> Graph is loading </div>
+                <div ref={this.networkRef} style={{"height": "100%"}}> Graph is loading </div>
             </div>
         );
     }
