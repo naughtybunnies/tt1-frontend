@@ -1,0 +1,25 @@
+{
+    "graph": {
+        "nodes": [{
+            "id": 1,
+            "label": "node1",
+            "title": "sometext"
+        }],
+        "edges": [],
+        "options": {
+            "nodes": {
+                "shape": "circle"
+            },
+            "layout": {
+                "hierarchical": {
+                    "enabled": true,
+                    "direction": "LR",
+                    "sortMethod": "directed"
+                }
+            },
+            "interaction": {
+                "hover": true
+            }
+        }
+    }
+}

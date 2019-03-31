@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 
 import Navbar from "../../Template/Navbar";
-import ScrapeMethodMenuBox from "../organisms/ScrapeMethodMenuBox";
+import ScrapeUsingFileBox from "../organisms/ScrapeUsingFileBox";
 
-export default class ScrapeMethodSelect extends Component {
+export default class FileScrape extends Component {
     render() {
         try {
             var { repositoryName } = this.props.match.params;
@@ -16,7 +16,7 @@ export default class ScrapeMethodSelect extends Component {
                 <Navbar />
                 <section className="section" style={{ padding: "0" }}>
                     {"Working on: "} <b>{repositoryName}</b>
-                    <ScrapeMethodMenuBox repositoryName={repositoryName} />
+                    <ScrapeUsingFileBox repositoryName={repositoryName} />
                 </section>
             </div>
         );
