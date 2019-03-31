@@ -16,7 +16,7 @@ const Container = styled.div`
     position: absolute;
     z-index: 1;
     background-color: #fff;
-    visibility: ${props => props.visibility ? "visible" : "hidden"}
+    visibility: ${props => props.visibility}
     top: ${props => props.top}px;
     left: ${props => props.left}px;
 `;
