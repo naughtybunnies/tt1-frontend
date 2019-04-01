@@ -71,7 +71,7 @@ import { faExpandArrowsAlt } from "@fortawesome/free-solid-svg-icons";
 import DataTable from "../Parse/Molecules/DataTable"
 
 storiesOf('Parse')
-  .add('[Page] Parse main page', () => (<Parse />))
+  .add('[Page] Parse main page', () => (<BrowserRouter><Parse /></BrowserRouter>))
   .add('[Organism] Visualizing Area', () => (<VisualizerArea />))
   .add('[Atom] Porting vis.js into react', () => (<MyNetwork />))
   .add('[Atom] VisNetwork', () => (<VisNetwork />))
@@ -90,3 +90,13 @@ storiesOf('Parse')
 storiesOf('Misc')
   .add('[Page] Credit', () => (<Credit />))
   .add('[Organism] Profile Card', () => (<ProfileCard />))
+
+
+import ExportSelect from "../Export/Pages/ExportSelect"
+import OptionCard from "../Export/Molecules/OptionCard"
+import ExportMenuBox from "../Export/Orgnaisms/ExportMenuBox"
+
+storiesOf('Export')
+  .add('[Page] Export method select', () => (<BrowserRouter><ExportSelect /></BrowserRouter>))
+  .add('[Organism] Export menu box', () => (<ExportMenuBox />))
+  .add('[Molecule] Option Card', () => (<OptionCard title="Export into JSON file" subtitle="this is the only option available" icon="something"/>))
