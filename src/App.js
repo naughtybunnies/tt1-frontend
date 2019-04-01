@@ -7,6 +7,12 @@ import Homepage from "./Home/pages/Homepage";
 import SelectMethodSelect from "./Scrape/pages/SelectMethodSelect";
 import PrimaryKeyScrape from "./Scrape/pages/PrimaryKeyScrape";
 import Parse from "./Parse/Pages/Parse"
+import FileScrape from "./Scrape/pages/FileScrape";
+import Credit from "./Miscellaneous/pages/Credit";
+import Documentation from "./Miscellaneous/pages/Documentation";
+import ExportSelect from "./Export/Pages/ExportSelect";
+
+
 class App extends Component {
     render() {
         return (
@@ -26,8 +32,28 @@ class App extends Component {
                         />
                         <Route
                             exact
+                            path="/scrape-file/:repositoryName"
+                            component={FileScrape}
+                        />
+                        <Route
+                            exact
                             path="/parse/:repositoryName"
                             component={Parse}
+                        />
+                        <Route
+                            exact
+                            path="/export/:repositoryName"
+                            component={ExportSelect}
+                        />
+                        <Route
+                            exact
+                            path="/credit"
+                            component={Credit}
+                        />
+                        <Route
+                            exact
+                            path="/documentation"
+                            component={Documentation}
                         />
                     </div>
                 </BrowserRouter>

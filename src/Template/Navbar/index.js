@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 import { Navbar } from "react-bulma-components";
 
@@ -8,22 +9,31 @@ export default class MyNavbar extends Component {
             <div>
                 <Navbar color="light">
                     <Navbar.Brand>
-                        <Navbar.Item renderAs="a" href="/">
-                            <b style={{ fontSize: "1.5em" }}>
-                                TT1 - Senior Project
-                            </b>
-                        </Navbar.Item>
+                        <Link to="/">
+                            <Navbar.Item>
+                                <b style={{ fontSize: "1.5em" }}>
+                                    TT1 - Senior Project
+                                </b>
+                            </Navbar.Item>
+                        </Link>
                     </Navbar.Brand>
                     <Navbar.Menu>
                         <Navbar.Container position="end">
-                        <Navbar.Item renderAs="a" href="/">
-                                Go Back Home
+                            <Navbar.Item>
+                                <Link to="/" style={{ color: "#4a4a4a" }}>
+                                    Go Back Home
+                                </Link>
                             </Navbar.Item>
+
                             <Navbar.Item dropdown={true} hoverable={true}>
                                 <Navbar.Link>Menu</Navbar.Link>
                                 <Navbar.Dropdown right={true}>
-                                    <Navbar.Item>Documentation</Navbar.Item>
-                                    <Navbar.Item>Credits</Navbar.Item>
+                                    <Link to="/documentation">
+                                        <Navbar.Item>Documentation</Navbar.Item>
+                                    </Link>
+                                    <Link to="/credit">
+                                        <Navbar.Item>Credits</Navbar.Item>
+                                    </Link>
                                 </Navbar.Dropdown>
                             </Navbar.Item>
                         </Navbar.Container>

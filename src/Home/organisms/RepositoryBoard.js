@@ -6,10 +6,10 @@ var mockResponseFromAPI = [
     {
         bubble: {
             exporter: {
-                state: "Unavailable"
+                state: "Ready"
             },
             parser: {
-                state: "Unavailable"
+                state: "Ready"
             },
             scraper: {
                 scraped_file_count: 8,
@@ -55,7 +55,7 @@ export default class RepositoryBoard extends Component {
             .then(response => {
                 this.setState({
                     responseFromAPI: response.data
-                })
+                });
             })
             .catch(error => {
                 console.log("error" + error);

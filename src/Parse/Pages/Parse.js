@@ -1,7 +1,7 @@
 import React from "react";
 
 import Navbar from "../../Template/Navbar";
-import VisualizerArea from "../Organisms/VisualizerArea";
+import VisualizerArea from "../Organisms/NewVisualizationArea";
 import PreviewTableArea from "../Organisms/PreviewTableArea";
 
 export default function Parse(props) {    
@@ -14,7 +14,7 @@ export default function Parse(props) {
                 <div style={{ display: "flex", flexDirection: "column", height: "100%"}}>
                     <VisualizerArea repositoryName={repositoryName}/>
                     <hr />
-                    <PreviewTableArea />
+                    <PreviewTableArea repositoryName={repositoryName}/>
                 </div>
             </section>
         </div>

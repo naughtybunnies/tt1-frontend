@@ -7,6 +7,7 @@ const StyledButton = styled(FontAwesomeIcon)`
     font-size: 2em;
     cursor: pointer;
     margin: 0.25em 0.5em 0.25em 0.5em;
+    color: ${props => props.isDisabled ? "#aaaaaa" : "#4a4a4a"}
 `;
 
 const ToolTip = styled.p`
@@ -30,7 +31,7 @@ export default function BaseButton(props) {
             onMouseLeave={() => setVisibility(false)}
             onClick={props.onClick}
         >
-            <StyledButton icon={props.icon || faSquare} />
+            <StyledButton icon={props.icon || faSquare} isDisabled={props.isDisabled}/>
             <ToolTip visibility={visibility}>
                 {props.tooltip || "tooltip"}
             </ToolTip>

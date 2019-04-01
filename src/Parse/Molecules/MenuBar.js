@@ -20,18 +20,22 @@ const FlexContainer = styled.div`
 `;
 
 export default function MenuBar(props) {
+
     return (
         <MenuBox>
             <FlexContainer>
-                <ExpandButton />
+                <ExpandButton targetNode={props.selectedNode ? props.selectedNode.id : "none"} repositoryName={props.repositoryName}/>
                 <SuppressNodeButton />
                 <CreateColumnButton />
                 <p style={{ fontSize: "2em" }}>|</p>
                 <FullScreenButton onClick={props.toggleFullscreen} />
                 <p style={{ fontSize: "2em" }}>|</p>
                 <p style={{ lineHeight: "3em", paddingRight: "0.5em" }}>
-                    Repository Name :
-                    <b> {props.repositoryName || "mock"}</b>
+                    Repository Name :<b> {props.repositoryName || "mock"}</b>
+                </p>
+                <p style={{ fontSize: "2em" }}>|</p>
+                <p style={{ lineHeight: "3em", paddingRight: "0.5em" }}>
+                    Selected Node :<b> {props.selectedNode ? props.selectedNode.data : "none"}</b>
                 </p>
             </FlexContainer>
         </MenuBox>
