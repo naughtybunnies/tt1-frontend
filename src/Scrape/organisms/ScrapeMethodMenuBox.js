@@ -46,12 +46,14 @@ export default class ScrapeMethodMenuBox extends Component {
                         </Link>
                     </ColFlex>
                     <ColFlex>
-                        <ScrapeUrlBubble />
-                        <Content>
-                            <br />
-                            <h2>Scrape Using URLs from text file</h2>
-                            <p>Suitable for specific requirement</p>
-                        </Content>
+                        <Link to={"/scrape-file/" + repositoryName}>
+                            <ScrapeUrlBubble />
+                            <Content>
+                                <br />
+                                <h2>Scrape Using URLs from text file</h2>
+                                <p>Suitable for specific requirement</p>
+                            </Content>
+                        </Link>
                     </ColFlex>
                 </RowFlex>
             </MenuBox>
