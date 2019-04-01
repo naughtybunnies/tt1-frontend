@@ -121,6 +121,11 @@ export default class RepositoryCard extends Component {
                                         ? "#cfe0e8"
                                         : "#e0e2e4"
                                 }
+                                linkTo={
+                                    this.props.exporterStatus === "Ready"
+                                        ? "/export/" + repositoryName
+                                        : false
+                                }
                             />
                         </RepositoryBubblesPanel>
 
