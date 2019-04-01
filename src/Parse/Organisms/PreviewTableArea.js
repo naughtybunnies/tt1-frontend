@@ -13,7 +13,7 @@ export default class PreviewTableArea extends Component {
     render() {
         return (
             <StyledBox>
-                <DataTable />
+                <DataTable repositoryName={this.props.repositoryName || "mock"}/>
             </StyledBox>
         );
     }

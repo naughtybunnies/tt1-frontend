@@ -3,6 +3,7 @@ import axios from "axios";
 import { Table } from "react-bulma-components";
 
 const setDataIntoState = (repositoryName, setterMethod) => {
+    console.log("DataTable is using reponame = ", repositoryName)
     if (repositoryName == "mock") {
         setterMethod([
             { id: "1", col1: "some val" },

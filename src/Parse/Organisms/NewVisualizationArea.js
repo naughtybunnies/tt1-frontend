@@ -11,6 +11,7 @@ const VisArea = styled.div`
     height: ${props => props.fullscreenVisualizer ? "80vh" : "50vh"};
     display: flex;
     flex-direction: row;
+    margin-top: 1em;
 `
 
 const StyledBox = styled(Box)`

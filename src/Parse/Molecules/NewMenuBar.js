@@ -4,6 +4,7 @@ import styled from "styled-components";
 import ExpandButton from "../Atoms/ExpandButton";
 import SuppressNodeButton from "../Atoms/SuppressNodeButton";
 import FullScreenButton from "../Atoms/FullScreenButton";
+import CreateColumnButton from "../Atoms/CreateColumnButton";
 
 const MenuContainer = styled.div`
     display: flex;
@@ -27,6 +28,13 @@ export default function NewMenuBar(props) {
                     repositoryName={props.repositoryName}
                 />
                 <SuppressNodeButton
+                    targetNode={props.selectedNodeId}
+                    repositoryName={props.repositoryName}
+                />
+            </MenuBlob>
+
+            <MenuBlob>
+                <CreateColumnButton
                     targetNode={props.selectedNodeId}
                     repositoryName={props.repositoryName}
                 />
