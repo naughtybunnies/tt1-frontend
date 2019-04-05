@@ -57,10 +57,6 @@ export default class RepositoryCard extends Component {
         }
     }
 
-    static defaultProps = {
-        repositoryName: "Default Name (Test)"
-    };
-
     render() {
         const { repositoryName } = this.props;
         const { scrapePercent, scrapeDone, scrapeTotal } = this.state;
@@ -83,7 +79,7 @@ export default class RepositoryCard extends Component {
                                 midText={
                                     this.props.scraperStatus === "Ready"
                                         ? "Ready"
-                                        : scrapePercent + "%"
+                                        : String.slice(scrapePercent, 0, 4) + "%"
                                 }
                                 lowText={scrapeDone + "/" + scrapeTotal}
                                 bubbleColor={
