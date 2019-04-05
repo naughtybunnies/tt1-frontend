@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 
-import { Columns } from "react-bulma-components";
-
-import Sidebar from "../../Template/Sidebar";
+import Navbar from "../../Template/Navbar";
 import ScrapeUsingFileBox from "../organisms/ScrapeUsingFileBox";
 
 export default class FileScrape extends Component {
@@ -15,19 +13,10 @@ export default class FileScrape extends Component {
 
         return (
             <div>
+                <Navbar />
                 <section className="section" style={{ padding: "0" }}>
-                    <Columns>
-                        <Columns.Column size={3}>
-                            <Sidebar />
-                        </Columns.Column>
-
-                        <Columns.Column>
-                            {"Working on: "} <b>{repositoryName}</b>
-                            <ScrapeUsingFileBox
-                                repositoryName={repositoryName}
-                            />
-                        </Columns.Column>
-                    </Columns>
+                    {"Working on: "} <b>{repositoryName}</b>
+                    <ScrapeUsingFileBox repositoryName={repositoryName} />
                 </section>
             </div>
         );
