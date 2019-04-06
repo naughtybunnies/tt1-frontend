@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import Content from "react-bulma-components/lib/components/content";
+
+import { Content } from "react-bulma-components";
 
 import MenuBox from "../atoms/MenuBox";
 import ScrapePrimaryKeyBubble from "../molecules/ScrapePrimaryKeyBubble";
@@ -20,10 +21,10 @@ const ColFlex = styled.div`
     text-align: center;
     align-items: center;
 `;
-export default class ScrapeMethodMenuBox extends Component {    
+export default class ScrapeMethodMenuBox extends Component {
     render() {
-        const { repositoryName } = this.props
-        
+        const { repositoryName } = this.props;
+
         return (
             <MenuBox>
                 <RowFlex>
@@ -45,12 +46,14 @@ export default class ScrapeMethodMenuBox extends Component {
                         </Link>
                     </ColFlex>
                     <ColFlex>
-                        <ScrapeUrlBubble />
-                        <Content>
-                            <br />
-                            <h2>Scrape Using URLs from text file</h2>
-                            <p>Suitable for specific requirement</p>
-                        </Content>
+                        <Link to={"/scrape-file/" + repositoryName}>
+                            <ScrapeUrlBubble />
+                            <Content>
+                                <br />
+                                <h2>Scrape Using URLs from text file</h2>
+                                <p>Suitable for specific requirement</p>
+                            </Content>
+                        </Link>
                     </ColFlex>
                 </RowFlex>
             </MenuBox>

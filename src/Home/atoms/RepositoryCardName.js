@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-
 import Content from "react-bulma-components/lib/components/content";
 
 export default class RepositoryCardName extends Component {
     render() {
-        const {repositoryName} = this.props;
+        const { repositoryName } = this.props;
 
         return (
             <Content>

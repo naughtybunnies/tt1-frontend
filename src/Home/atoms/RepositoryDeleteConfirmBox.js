@@ -2,14 +2,14 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import axios from "axios";
 
+import { Box, Button } from "react-bulma-components";
+
 import {
     Field,
     Label,
     Control,
     Input
 } from "react-bulma-components/lib/components/form";
-import Box from "react-bulma-components/lib/components/box";
-import Button from "react-bulma-components/lib/components/button";
 
 const LoginForm = styled(Box)`
     display: block;
@@ -32,13 +32,13 @@ const LoginFormBg = styled.div`
 export default class RepositoryDeleteConfirmBox extends Component {
     constructor(props) {
         super(props);
-        this.state = { formValue: ""};
+        this.state = { formValue: "" };
         this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange(event) {
         const formValue = event.target.value;
-        this.setState((prevState) => ({
+        this.setState(prevState => ({
             formValue: formValue,
             formIsDanger: false
         }));
@@ -52,7 +52,7 @@ export default class RepositoryDeleteConfirmBox extends Component {
         if (repositoryName === formValue) {
             tempState.formIsDanger = false;
             axios
-                .post("http://localhost:5000/repository/delete/", {
+                .post(window.API_ENDPOINT + "/repository/delete/", {
                     name: repositoryName
                 })
                 .then(response => {
@@ -60,11 +60,10 @@ export default class RepositoryDeleteConfirmBox extends Component {
                 });
         } else {
             tempState.formIsDanger = true;
-            tempState.errorMessage = "Invalid repository name, try again."
+            tempState.errorMessage = "Invalid repository name, try again.";
         }
         this.setState(prevState => tempState);
     };
-
 
     render() {
         const { repositoryName, displayConfirmBox, toggler } = this.props;
@@ -74,16 +73,21 @@ export default class RepositoryDeleteConfirmBox extends Component {
                     <LoginForm>
                         <Field>
                             <Label>
-                                Are you sure you want to delete [ {repositoryName} ] ? 
+                                Are you sure you want to delete [ { repositoryName || " " } ] ?
                             </Label>
                             <Control>
                                 <Input
                                     placeholder={
-                                        "Type in your repository name: " + repositoryName
+                                        "Type in your repository name: " +
+                                        repositoryName
                                     }
                                     onChange={this.handleChange}
                                     value={this.state.formValue}
-                                    color={this.state.formIsDanger ? 'danger' : 'link'}
+                                    color={
+                                        this.state.formIsDanger
+                                            ? "danger"
+                                            : "link"
+                                    }
                                     className="selemnium-delete-input"
                                 />
                             </Control>
@@ -112,7 +116,7 @@ export default class RepositoryDeleteConfirmBox extends Component {
                                 </Button>
                             </Control>
                         </Field>
-                        <p>{this.state.errorMessage ||  ""}</p>
+                        <p>{this.state.errorMessage || ""}</p>
                     </LoginForm>
                 </LoginFormBg>
             </div>
