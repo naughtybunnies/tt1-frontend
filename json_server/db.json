@@ -21,5 +21,22 @@
                 "hover": true
             }
         }
-    }
+    },
+    "getstatus": [{
+        "bubble": {
+            "exporter": {
+                "state": "Ready"
+            },
+            "parser": {
+                "state": "Ready"
+            },
+            "scraper": {
+                "scraped_file_count": 8,
+                "state": "Ready",
+                "total_file_count": 8
+            }
+        },
+        "id": "9c9f7129-7db6-44ff-a3bd-84e04b81476c",
+        "name": "MockFromJsonServer"
+    }]
 }

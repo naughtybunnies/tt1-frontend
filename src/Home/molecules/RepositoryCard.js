@@ -37,9 +37,9 @@ export default class RepositoryCard extends Component {
             this.state.myEventSource.onmessage = e => {
                 const data = JSON.parse(e.data);
                 const newPercent =
-                    (data.bubble.scraper.scraped_file_count /
+                    String((data.bubble.scraper.scraped_file_count /
                         data.bubble.scraper.total_file_count) *
-                    100;
+                    100).slice(0, 4);
                 const newDone = data.bubble.scraper.scraped_file_count;
                 this.setState({
                     scrapePercent: newPercent,
@@ -56,10 +56,6 @@ export default class RepositoryCard extends Component {
             };
         }
     }
-
-    static defaultProps = {
-        repositoryName: "Default Name (Test)"
-    };
 
     render() {
         const { repositoryName } = this.props;

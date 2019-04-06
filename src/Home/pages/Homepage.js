@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import Navbar from "../../Template/Navbar";
 
-import RepositoryBoard from "../organisms/RepositoryBoard";
+import RepositoryBoard from "../organisms/NewRepositoryBoard";
 import RepositoryCreateButton from "../molecules/RepositoryCreateButton";
 
 const AddButtonContainer = styled.div`
