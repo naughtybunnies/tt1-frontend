@@ -9,9 +9,9 @@ const reshapeData = data => {
         scraperStatus: data.bubble.scraper.state,
         parserStatus: data.bubble.parser.state,
         exporterStatus: data.bubble.exporter.state,
-        scrapePercent:
-            String.slice(String(data.bubble.scraper.scraped_file_count * 100/
-                data.bubble.scraper.total_file_count),0, 4) ,
+        scrapePercent: String(
+            (data.bubble.scraper.scraped_file_count * 100) / data.bubble.scraper.total_file_count
+        ).slice(0, 4),
         scrapeTotal: data.bubble.scraper.total_file_count,
         scrapeDone: data.bubble.scraper.scraped_file_count,
         parseMid: data.bubble.parser.state,
