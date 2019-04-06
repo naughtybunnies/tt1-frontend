@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Table } from "react-bulma-components";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+
 const setDataIntoState = (repositoryName, setterMethod) => {
-    console.log("DataTable is using reponame = ", repositoryName)
-    if (repositoryName == "mock") {
+    console.log("DataTable is using reponame = ", repositoryName);
+    if (repositoryName === "mock") {
         setterMethod([
             { id: "1", col1: "some val" },
             { id: "2", col1: "some val" },
@@ -38,14 +41,66 @@ const setDataIntoState = (repositoryName, setterMethod) => {
     }
 };
 
-const createRow = (rowData, kind) => {
+const handleDeleteColumn = (columnName, repositoryName) => {
+    console.log(columnName);
+    if (
+        window.confirm(
+            String(
+                "Are you sure you want to delete column [ " +
+                    columnName +
+                    " ] ?"
+            )
+        )
+    ) {
+        axios
+            .post(
+                window.API_ENDPOINT +
+                    "/repository/" +
+                    repositoryName +
+                    "/datatable/delete/",
+                { column_name: columnName }
+            )
+            .then(response => {
+                window.location.reload();
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
+};
+
+const createRow = (rowData, kind, repositoryName) => {
     let row = [];
 
     if (kind === "head") {
         console.log(rowData);
 
         row = Object.keys(rowData).map(item => {
-            return <th>{item}</th>;
+            return (
+                <th>
+                    <span
+                        style={{
+                            display: "flex",
+                            flexDirection: "row",
+                            justifyContent: "space-between"
+                        }}
+                    >
+                        <span>{item}</span>
+
+                        {item !== "id" && (
+                            <span>
+                                <FontAwesomeIcon
+                                    icon={faTrash}
+                                    style={{ cursor: "pointer" }}
+                                    onClick={event =>
+                                        handleDeleteColumn(item, repositoryName)
+                                    }
+                                />
+                            </span>
+                        )}
+                    </span>
+                </th>
+            );
         });
     } else {
         row = Object.values(rowData).map(item => {
@@ -55,8 +110,8 @@ const createRow = (rowData, kind) => {
     return row;
 };
 
-const createTable = responseData => {
-    let head = <tr>{createRow(responseData[0], "head")}</tr>;
+const createTable = (responseData, repositoryName) => {
+    let head = <tr>{createRow(responseData[0], "head", repositoryName)}</tr>;
     let body = responseData.map(row => {
         return <tr> {createRow(row, "body")} </tr>;
     });
@@ -72,7 +127,7 @@ export default function DataTable(props) {
         return <div>Loading</div>;
     }
 
-    const [head, body] = createTable(dataTable);
+    const [head, body] = createTable(dataTable, props.repositoryName);
 
     return (
         <div>

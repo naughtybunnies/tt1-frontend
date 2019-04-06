@@ -2,7 +2,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import 'react-bulma-components/dist/react-bulma-components.min.css';
 
-window.API_ENDPOINT = "http://192.168.43.91:5000";
+// window.API_ENDPOINT = "http://192.168.43.91:5000";
+window.API_ENDPOINT = "http://localhost:5000";
 
 // New src
 import { BrowserRouter } from 'react-router-dom';
@@ -25,12 +26,15 @@ import Homepage from '../Home/pages/Homepage'
 import ScrapeMethodSelect from '../Scrape/pages/SelectMethodSelect'
 import PrimaryKeyScrape from '../Scrape/pages/PrimaryKeyScrape'
 import FileScrape from '../Scrape/pages/FileScrape'
+import NewRepositoryBoard from "../Home/organisms/NewRepositoryBoard"
 
-storiesOf('Pages')
+
+storiesOf('Home')
   .add('[Page] Home', () => (<BrowserRouter><Homepage /></BrowserRouter>))
   .add('[Page] Scrape Method Select', () => (<BrowserRouter><ScrapeMethodSelect /></BrowserRouter>))
   .add('[Page] Scrape Using Primary Key', () => (<BrowserRouter><PrimaryKeyScrape /></BrowserRouter>))
   .add('[Page] Scrape Using File', () => (<BrowserRouter><FileScrape/></BrowserRouter>))
+  .add('[Organism] New repository board', () => (<BrowserRouter><NewRepositoryBoard /></BrowserRouter>))
 
 
 import MenuBox from '../Scrape/atoms/MenuBox'
