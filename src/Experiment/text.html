@@ -1,0 +1,34 @@
+<!-- <html>
+
+<head>
+
+</head>
+
+<body>
+
+</body>
+<script>
+    var myEventSource = new EventSource("http://localhost:5000/api/stream")
+    myEventSource.onmessage = (e) => {
+        console.log(e)
+    }
+    myEventSource.onerror = (e) => {
+        console.log(e)
+    }
+</script>
+
+</html> -->
+
+<script>
+    var stream = new EventSource("http://localhost:5000/api/stream")
+
+    stream.onerror = function (e) {
+        console.log(e.data);
+    };
+
+    stream.onmessage = function (e) {
+        console.log(e.data);
+    };
+
+    console.log(stream)
+</script>

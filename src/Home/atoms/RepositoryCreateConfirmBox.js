@@ -2,14 +2,14 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import axios from "axios";
 
+import { Box, Button } from "react-bulma-components";
+
 import {
     Field,
     Label,
     Control,
     Input
 } from "react-bulma-components/lib/components/form";
-import Box from "react-bulma-components/lib/components/box";
-import Button from "react-bulma-components/lib/components/button";
 
 const LoginForm = styled(Box)`
     display: block;
@@ -46,26 +46,25 @@ export default class RepositoryCreateConfirmBox extends Component {
 
     confirmCreate = () => {
         axios
-            .post("http://localhost:5000/repository/", {
+            .post(window.API_ENDPOINT + "/repository/", {
                 name: this.state.formValue
             })
             .then(response => {
-                switch(response.status){
+                switch (response.status) {
                     case 203:
-                        window.location.reload()
-                        break
+                        window.location.reload();
+                        break;
                     default:
-                        break
+                        break;
                 }
             })
             .catch(error => {
-                this.setState((prevState) => {
-                    let tempState = prevState
-                    tempState.errorMessage = error.response.data
-                    tempState.formIsDanger = true
-                    return tempState
-                }
-                )
+                this.setState(prevState => {
+                    let tempState = prevState;
+                    tempState.errorMessage = error.response.data;
+                    tempState.formIsDanger = true;
+                    return tempState;
+                });
             });
     };
 
@@ -86,7 +85,11 @@ export default class RepositoryCreateConfirmBox extends Component {
                                     onChange={this.handleChange}
                                     value={this.state.formValue}
                                     className="selenium-reponame-input"
-                                    color={this.state.formIsDanger ? 'danger' : 'link'}
+                                    color={
+                                        this.state.formIsDanger
+                                            ? "danger"
+                                            : "link"
+                                    }
                                 />
                             </Control>
                         </Field>
@@ -113,9 +116,8 @@ export default class RepositoryCreateConfirmBox extends Component {
                                     Cancel
                                 </Button>
                             </Control>
-                            
                         </Field>
-                        <p>{this.state.errorMessage ||  ""}</p>
+                        <p>{this.state.errorMessage || ""}</p>
                     </LoginForm>
                 </LoginFormBg>
             </div>

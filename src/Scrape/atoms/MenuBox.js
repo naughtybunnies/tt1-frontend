@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import Box from "react-bulma-components/lib/components/box";
+import { Box } from "react-bulma-components";
 
 const MenuBox = styled(Box)`
     height: 80vh;

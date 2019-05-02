@@ -6,10 +6,10 @@ var mockResponseFromAPI = [
     {
         bubble: {
             exporter: {
-                state: "Unavailable"
+                state: "Ready"
             },
             parser: {
-                state: "Unavailable"
+                state: "Ready"
             },
             scraper: {
                 scraped_file_count: 8,
@@ -51,11 +51,11 @@ export default class RepositoryBoard extends Component {
 
     getRepositoriesStatus = () => {
         axios
-            .get("http://localhost:5000/getstatus")
+            .get(window.API_ENDPOINT + "/getstatus")
             .then(response => {
                 this.setState({
                     responseFromAPI: response.data
-                })
+                });
             })
             .catch(error => {
                 console.log("error" + error);
